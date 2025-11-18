@@ -27,7 +27,7 @@ const App = () => {
     <div className="min-h-screen bg-gray-100 p-6">
       <h1 className="text-3xl font-bold mb-6">Product Catalog</h1>
       {loading && <p>Loading products...</p>}
-      {error && <div className="text-red-500">Error: {error}</div>}
+      {error && <div className="text-red-500"> {error}</div>}
       <ProductList products={products} />
     </div>
   );
