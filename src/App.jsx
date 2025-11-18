@@ -12,7 +12,7 @@ const App = () => {
         const res = await fetch("http://localhost:8000/products");
         if (!res.ok) throw new Error("Network response was not ok");
         const data = await res.json();
-        console.log(data);
+
         setProducts(data);
       } catch (err) {
         setError(err.message);
@@ -28,7 +28,7 @@ const App = () => {
       <h1 className="text-3xl font-bold mb-6">Product Catalog</h1>
       {loading && <p>Loading products...</p>}
       {error && <div className="text-red-500">Error: {error}</div>}
-   <ProductList products={products} />
+      <ProductList products={products} />
     </div>
   );
 };
