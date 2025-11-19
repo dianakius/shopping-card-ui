@@ -8,7 +8,7 @@ const Header = () => {
   const { cart } = useCart();
 
   const itemCount = cart.reduce((acc, item) => acc + item.qty, 0);
-  const total = cart.reduce((acc, item) => acc + item.qty, 0).toFixed(2);
+  const total = cart.reduce((acc, item) => acc + item.price * item.qty, 0).toFixed(2);
 
   return (
     <header className="bg-white shadow-md p-4 flex justify-between  items-center">
@@ -42,11 +42,17 @@ const Header = () => {
                       >
                         <div>
                           <p className="font-semibold">{item.name}</p>
-                          <p className='text-sm     text-gray-600'>{item.qty} x ${item.price} </p>
+                          <p className="text-sm   text-gray-600">
+                            {item.qty} x ${item.price}{" "}
+                          </p>
                         </div>
                       </li>
                     ))}
                   </ul>
+
+                  <div className="mt-4 flex justify-between font-semibold">
+                    <span> ${total}</span>
+                  </div>
                 </>
               )}
             </div>
